@@ -39,7 +39,7 @@ function SingleFavorites({ gif, favoritesArray, setFavoritesArray }) {
                         src={`${gif.images.original.webp}`}
                         fill
                         alt={gif.title}
-                        className="rounded-[10px] py-2 absolute "
+                        className="rounded-[10px] absolute "
                         placeholder="blur"
                         blurDataURL={`${gif.images.original.webp}`}
                         sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
@@ -49,7 +49,7 @@ function SingleFavorites({ gif, favoritesArray, setFavoritesArray }) {
                         src={`${gif.images.original.url}`}
                         fill
                         alt={gif.title}
-                        className="rounded-md py-2 absolute"
+                        className="rounded-md absolute"
                         placeholder="blur"
                         blurDataURL={`${gif.images.original.webp}`}
                         sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
@@ -76,7 +76,7 @@ function Favorites() {
     }, [])
 
     return (
-        <div className='w-full flex flex-col  gap-6 mt-14'>
+        <div className='w-full flex flex-col gap-6 mt-14'>
             <h4 className='text-3xl font bold italic'>Favorites Gifs</h4>
             {favoritesArray?.length > 0
                 ?

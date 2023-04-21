@@ -60,9 +60,10 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             fill
             alt={gif.title}
             className="rounded-[10px] absolute"
-            placeholder="empty"
-            blurDataURL={`${gif.images.original.webp}`}
+            placeholder="blur"
+            blurDataURL={`data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAAGElEQVR42mNce/BgPQMFgHHUgFEDqGEAAD5CGteI0OXhAAAAAElFTkSuQmCC`}
             sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
+            unoptimized
           />
         ) : (
           <Image
@@ -71,7 +72,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             alt={gif.title}
             className="rounded-md absolute"
             placeholder="blur"
-            blurDataURL={`${gif.images.original.webp}`}
+            blurDataURL={`${gif.images.original.url}`}
             sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
           />
         )}
@@ -102,7 +103,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
 
 function Trends({ allTrends }) {
 
-  const { favoritesArray, setFavoritesArray, wantedGifs, setWantedGifs, isLoading, setIsLoading, search, offSet, setOffSet } = useContextGif()
+  const { favoritesArray, setFavoritesArray, isLoading, setIsLoading } = useContextGif()
 
   useEffect(() => {
     setFavoritesArray(JSON.parse(localStorage.getItem('favoritesArray')))

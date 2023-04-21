@@ -46,7 +46,7 @@ export async function fetchSingleMeme(meme, memeId) {
 
 export async function fetchWantedGifs(search, offSet) {
     try {
-        const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${search}&limit=12&offset=${offSet}&rating=g&lang=en`)
+        const res = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&q=${search}&limit=18&offset=${offSet}&rating=g&lang=en`)
         const data = await res.json()
         return data.data
     } catch (error) {
@@ -55,7 +55,7 @@ export async function fetchWantedGifs(search, offSet) {
 }
 export async function fetchWantedStickers(search, offSet) {
     try {
-        const res = await fetch(`https://api.giphy.com/v1/stickers/search?api_key=${APIKEY}&q=${search}&limit=12&offset=${offSet}&rating=g&lang=en`)
+        const res = await fetch(`https://api.giphy.com/v1/stickers/search?api_key=${APIKEY}&q=${search}&limit=18&offset=${offSet}&rating=g&lang=en`)
         const data = await res.json()
         return data.data
     } catch (error) {
