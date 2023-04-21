@@ -72,7 +72,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             alt={gif.title}
             className="rounded-md absolute"
             placeholder="blur"
-            blurDataURL={`${gif.images.original.url}`}
+            blurDataURL={`data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAAGElEQVR42mNce/BgPQMFgHHUgFEDqGEAAD5CGteI0OXhAAAAAElFTkSuQmCC`}
             sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
           />
         )}
