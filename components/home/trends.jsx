@@ -17,7 +17,7 @@ function takeTitle(giftitle) {
 
 
 function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoading }) {
-
+  console.log(favoritesArray)
   const [isHover, setIsHover] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false)
   const [isFavorite, setIsFavorite] = useState(favoritesArray?.map((e) => { return e.id }).includes(gif.id) ? true : false)
@@ -63,7 +63,6 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             placeholder="blur"
             blurDataURL={`data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAAGElEQVR42mNce/BgPQMFgHHUgFEDqGEAAD5CGteI0OXhAAAAAElFTkSuQmCC`}
             sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
-            unoptimized
           />
         ) : (
           <Image
