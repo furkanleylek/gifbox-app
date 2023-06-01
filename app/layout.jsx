@@ -1,5 +1,4 @@
 import '@/styles/global.css'
-import SideBar from '@/components/sidebar'
 import { Inter, Roboto_Mono, Open_Sans, Mate_SC } from '@next/font/google'
 import Navbar from '@/components/navbar'
 import Provider from '@/components/context'

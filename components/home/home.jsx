@@ -11,11 +11,18 @@ function Home({ trendsGifs, searchGifs, searchStickers, trendsStickers }) {
     const { wantedGifs, wantedStickers, search } = useContextGif()
     return (
         <main className='flex flex-col w-full text-secondary pb-12'>
-            <Search />
-            <div className='w-full flex flex-col px-4 md:px-28  h-full container m-auto '>
-                <div className='w-full h-full flex items-center justify-start mt-10 py-4 gap-3 text-5xl'>
-                    <BiTrendingUp className=' text-sky-500' />
-                    <h3 className='font-bold text-secondary italic'>Trends</h3>
+            <div className='container px-4  m-auto  md:hidden w-full h-full mt-12'>
+                <Search />
+            </div>
+            <div className='w-full flex flex-col px-4 md:px-28 h-full container m-auto '>
+                <div className='w-full h-full flex items-center justify-between mt-10  py-4 gap-16 text-3xl md:text-5xl '>
+                    <div className='flex items-center gap-3'>
+                        <BiTrendingUp className=' text-sky-500 text-4xl md:text-6xl' />
+                        <h3 className='font-bold text-secondary italic'>Trends</h3>
+                    </div>
+                    <div className='hidden md:flex h-full '>
+                        <Search />
+                    </div>
                 </div>
                 <div className='inline-block mt-14'>
                     <span className={`${content == 0 ? 'opacity-100 ' : 'opacity-60'} pb-4 cursor-pointer hover:opacity-100 text-[20px] italic font-semibold mr-14  `} onClick={() => setContent(0)}>GIFS</span>
@@ -30,7 +37,7 @@ function Home({ trendsGifs, searchGifs, searchStickers, trendsStickers }) {
                     (
                         search.length > 0
                             ?
-                            <Trends allTrends={searchGifs} />
+                            <Trends allTrends={wantedGifs} />
                             :
                             <Trends allTrends={trendsGifs} />
                     )
@@ -38,7 +45,7 @@ function Home({ trendsGifs, searchGifs, searchStickers, trendsStickers }) {
                     (
                         search.length > 0
                             ?
-                            <Trends allTrends={searchStickers} />
+                            <Trends allTrends={wantedStickers} />
                             :
                             <Trends allTrends={trendsStickers} />
                     )

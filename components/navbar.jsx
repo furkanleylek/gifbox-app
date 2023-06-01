@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
 import NavbarModal from './modals/navbarModal';
 import { useContextGif } from './context';
 import gifbox from '../public/gifbox.png'
@@ -13,14 +12,14 @@ import { Tooltip } from 'react-tooltip';
 function Navbar() {
 
     const { isOpen, setIsOpen } = useContextGif()
-    const router = useRouter()
+
     return (
         <div className='relative flex flex-col py-10 px-4 md:px-14 container m-auto '>
             <div className='flex items-center justify-between '>
-                <div className='flex items-center gap-4 cursor-pointer' onClick={() => router.push('/')}>
+                <Link href='/' className='flex items-center gap-4 cursor-pointer'>
                     <Image src={gifbox} width={60} height={40} alt='gifbox' />
                     <span className='z-50 text-2xl  mt-2 italic font-bold pointer-events-none text-sky-500'>gifbox</span>
-                </div>
+                </Link>
                 <button
                     className={`h-[35px] flex md:hidden flex-col items-center justify-center cursor-pointer z-[999] hover:scale-110 transition-all `}
                     onClick={() => setIsOpen(!isOpen)}
@@ -31,10 +30,10 @@ function Navbar() {
                 </button>
                 <div className='hidden md:flex items-center text-white text-4xl gap-8'>
                     <Link href='/favorites' data-tooltip-id="my-tooltip" data-tooltip-content="Favorites">
-                        <AiFillStar />
+                        <AiFillStar className='text-orange-400 opacity-60 hover:opacity-100 hover:scale-105' />
                     </Link>
                     <Link href='/designs' data-tooltip-id="my-tooltip" data-tooltip-content="Designs">
-                        <MdDesignServices />
+                        <MdDesignServices className='text-green-400 hover:scale-105 opacity-60 hover:opacity-100' />
                     </Link>
                     <Tooltip id="my-tooltip" style={{ backgroundColor: 'transparent', color: 'white', fontSize: '10px' }} />
                 </div>
