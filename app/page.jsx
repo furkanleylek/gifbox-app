@@ -4,7 +4,7 @@ import {
   fetchGifTrends,
   fetchStickerTrends,
 } from "@/services/index"
-
+import Title from '@/components/home/title'
 
 async function HomePage({ params }) {
   const pagePromises = [
@@ -13,9 +13,14 @@ async function HomePage({ params }) {
   ]
   const [trendsGifs, trendsStickers] = await Promise.all(pagePromises)
   return (
-    <>
-      <Home trendsGifs={trendsGifs} trendsStickers={trendsStickers} />
-    </>
+    <div className='w-full h-full'>
+      <div className='w-full h-full bg-zinc-900 '>
+        <Title />
+      </div>
+      <div className='w-full h-full bg-white '>
+        <Home trendsGifs={trendsGifs} trendsStickers={trendsStickers} />
+      </div>
+    </div>
   )
 }
 export default HomePage

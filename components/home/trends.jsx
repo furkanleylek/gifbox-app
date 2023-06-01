@@ -15,9 +15,7 @@ function takeTitle(giftitle) {
 }
 
 
-
 function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoading }) {
-  console.log(favoritesArray)
   const [isHover, setIsHover] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false)
   const [isFavorite, setIsFavorite] = useState(favoritesArray?.map((e) => { return e.id }).includes(gif.id) ? true : false)
@@ -118,7 +116,7 @@ function Trends({ allTrends }) {
           className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-1 w-full h-full "
         >
           {
-            allTrends.map((gif, index) => (
+            allTrends?.map((gif, index) => (
               <SingleElement key={gif.id} index={index + 1} gif={gif} favoritesArray={favoritesArray} setFavoritesArray={setFavoritesArray} setIsLoading={setIsLoading} />
             ))
           }

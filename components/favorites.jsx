@@ -4,7 +4,6 @@ import { useContextGif } from './context'
 import Image from 'next/image'
 import { AiFillStar } from 'react-icons/ai'
 import Slider from './slider'
-import { BsArrowReturnRight } from 'react-icons/bs'
 import favoriteGif from '../public/favoriteGif.png'
 import favoriteSticker from '../public/favoriteSticker.png'
 
@@ -32,7 +31,7 @@ export function SingleFavorites({ gif, favoritesArray, setFavoritesArray }) {
     return (
         <div
             key={gif.id}
-            className="relative w-full h-60 md:h-80 rounded-xl object-cover cursor-pointer hover:scale-[1.02] hover:z-30 transition-transform duration-300"
+            className="relative w-full h-[180px] md:h-80 rounded-xl object-cover cursor-pointer hover:scale-[1.02] hover:z-30 transition-transform duration-300"
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
         >
@@ -83,29 +82,41 @@ function Favorites() {
     return (
         <div className='w-full h-full mt-12 flex flex-col  '>
             <div className='w-full gap-10  '>
-                <h5 className='text-3xl font bold text-white italic border-b-4 pb-2 border-gray-700 rounded-[4px]'>Favorites Gifs</h5>
-                <BsArrowReturnRight className="z-50 text-4xl mt-3 text-white rounded-full mb-6" />
+                <div className='flex items-center gap-2 border-b-4 pb-2 my-4 border-gray-700 rounded-[4px]'>
+                    <div className='relative w-6 md:w-8 h-6 md:h-8'>
+                        <Image src={favoriteGif} fill alt='sticker' />
+                    </div>
+                    <h5 className='text-2xl md:text-3xl font bold text-white italic'>Favorites Gifs</h5>
+                </div>
                 {
                     gifFavorites.length > 0
                         ?
                         <Slider favoritesArray={gifFavorites} setFavoritesArray={setFavoritesArray} />
                         :
                         <div className='flex flex-col items-center justify-center my-16 gap-4'>
-                            <h5 className='text-gray-400 text-3xl font-semibold  w-full text-center'>You have not favorites gifs</h5>
-                            <Image src={favoriteGif} width={120} height={120} alt='sticker' />
+                            <h5 className='text-gray-400 text-xl md:text-3xl font-semibold  w-full text-center'>You have not favorites gifs</h5>
+                            <div className='relative w-24 md:w-32 h-24 md:h-32'>
+                                <Image src={favoriteGif} fill alt='sticker' />
+                            </div>
                         </div>}
             </div>
             <div className='w-full '>
-                <h5 className='text-3xl font bold text-white italic border-b-4 pb-2 border-gray-700 rounded-[4px] '>Favorites Stickers</h5>
-                <BsArrowReturnRight className="z-50 text-4xl mt-3 text-white rounded-full mb-6" />
+                <div className='flex items-center gap-2 border-b-4 pb-2 my-4 border-gray-700 rounded-[4px]'>
+                    <div className='relative w-6 md:w-8 h-6 md:h-8'>
+                        <Image src={favoriteSticker} fill alt='sticker' />
+                    </div>
+                    <h5 className='text-2xl md:text-3xl font bold text-white italic  '>Favorites Stickers</h5>
+                </div>
                 {
                     stickerFavorites.length > 0
                         ?
                         <Slider favoritesArray={stickerFavorites} setFavoritesArray={setFavoritesArray} />
                         :
                         <div className='flex flex-col items-center justify-center my-16 gap-4'>
-                            <h5 className='text-gray-400 text-3xl font-semibold  w-full text-center'>You have not favorites stickers</h5>
-                            <Image src={favoriteSticker} width={120} height={120} alt='sticker' />
+                            <h5 className='text-gray-400 text-xl md:text-3xl font-semibold  w-full text-center'>You have not favorites stickers</h5>
+                            <div className='relative w-24 md:w-32 h-24 md:h-32'>
+                                <Image src={favoriteSticker} fill alt='sticker' />
+                            </div>
                         </div>
                 }
             </div>

@@ -3,10 +3,12 @@ import { useState, useEffect, useRef } from "react"
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { fetchWantedGifs, fetchWantedStickers } from "@/services";
 import { useContextGif } from "./context";
+import { useRouter } from 'next/navigation';
 
 export default function Search({ }) {
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef(null)
+    const router = useRouter()
     const { setWantedGifs, setWantedStickers, search, setSearch, setIsLoading, offSet } = useContextGif()
 
     useEffect(() => {
@@ -29,9 +31,8 @@ export default function Search({ }) {
     }, [search])
 
     /* fetch new data when scroll */
-
     return (
-        <div className="relative gap-2 mt-12 w-full md:hidden">
+        <div className="relative gap-2 mt-12 w-full md:hidden  px-4 md:px-14 ">
             <input
                 className={`${isFocused ? 'bg-white' : 'bg-sky-100 text-gray-700'} pl-4 italic text-gray-900 text-xl font-semibold py-2 px-10 w-full m-auto h-12 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-200 transition duration-200 ease-in-out`}
                 type="text"
@@ -40,7 +41,10 @@ export default function Search({ }) {
                 placeholder={`${isFocused ? "" : "🔍   Search all the GIFs and Stickers"}`}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
-                onChange={(event) => setSearch(event.target.value)}
+                onChange={(event) => {
+                    setSearch(event.target.value)
+                    router.replace(`/search?q=${event.target.value}`)
+                }}
             />
             {search.length > 0 && (
                 <button

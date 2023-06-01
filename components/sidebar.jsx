@@ -11,23 +11,27 @@ function SideBar() {
     const [isOpenSide, setIsOpenSide] = useState(false)
 
     return (
-        <section className={`${isOpenSide ? "w-48" : "w-24"}  hidden md:flex py-6 h-screen items-start flex-col  gap-6  bg-white `}>
-            <div className="flex items-center w-full justify-between">
-                <Link href="/"><FaBoxOpen className="text-6xl text-sky-500 cursor-pointer mt-4 ml-4" /></Link>
-                {isOpenSide
-                    ?
-                    <AiFillLeftCircle className="text-sky-500 text-2xl" onClick={() => setIsOpenSide(false)} />
-                    :
-                    <AiFillRightCircle className="text-sky-500 text-2xl" onClick={() => setIsOpenSide(true)} />
-                }
+
+        <div className="h-screen w-72 hidden md:flex items-start flex-col gap-6 bg-gradient-to-b from-zinc-900 to-zinc-800 border-r-4 border-zinc-900 " >
+            <div className="flex flex-col items-center h-full w-full gap-32 pt-10 transition-all duration-1000 ">
+                <Link href="/"><FaBoxOpen className="text-6xl text-primary cursor-pointer mt-4 ml-4" /></Link>
+                <div className="flex flex-col gap-10 text-2xl text-white font-bold w-full">
+                    <Link href="/" className="flex items-center gap-6 hover:bg-primary hover:text-secondary transition-all duration-500 px-4 py-2 rounded ">
+                        <IoHomeOutline className="text-3xl" />
+                        <span>Home</span>
+                    </Link>
+                    <Link href="/favorites" className="flex items-center  gap-6 hover:bg-primary hover:text-secondary  transition-all duration-500 px-4 py-2 rounded ">
+                        <AiOutlineStar className="text-3xl" />
+                        <span>Favorites</span>
+                    </Link>
+                    <Link href="/designs" className="flex items-center gap-6 hover:bg-primary hover:text-secondary  transition-all duration-500 px-4 py-2 rounded ">
+                        <MdOutlineDesignServices className="text-3xl" />
+                        <span>Designs</span>
+                    </Link>
+                    {/* <div onClick={() => setIsOpenSide(true)}><AiOutlineSearch className="text-2xl text-gray-500 cursor-pointer" /></div> */}
+                </div>
             </div>
-            <div className="flex flex-col items-start h-full pl-4 w-full gap-16 pt-10 border-4 ml-2 ">
-                <Link href="/" className="flex items-center gap-6 font-semibold text-xl"><IoHomeOutline className="text-2xl text-gray-500 cursor-pointer" />{isOpenSide && "Home"}</Link>
-                <div onClick={() => setIsOpenSide(true)}><AiOutlineSearch className="text-2xl text-gray-500 cursor-pointer" /></div>
-                <Link href="/favorites" className="flex border-2 items-center gap-6 font-semibold text-xl"><AiOutlineStar className="text-2xl text-gray-500  cursor-pointer" />{isOpenSide && "Favorites"}</Link>
-                <Link href="/designs" className="flex border-2 items-center gap-6 font-semibold text-xl"><MdOutlineDesignServices className="text-2xl text-gray-500  cursor-pointer" />{isOpenSide && "Designs"}</Link>
-            </div>
-        </section>
+        </div>
     )
 }
 

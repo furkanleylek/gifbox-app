@@ -1,16 +1,23 @@
 import '@/styles/global.css'
 import SideBar from '@/components/sidebar'
+import { Inter, Roboto_Mono, Open_Sans, Mate_SC } from '@next/font/google'
 import Navbar from '@/components/navbar'
 import Provider from '@/components/context'
 import Footer from '@/components/footer'
+import classNames from 'classnames'
+
+const sans = Open_Sans({ subsets: ['latin'] })
+const mono = Roboto_Mono({ subsets: ['latin'] })
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='w-full  h-screen flex flex-col md:flex-row gap-0  md:overflow-y-hidden bg-gradient-to-r from-zinc-800 via-gray-800 to-neutral-800'>
+      <body className={classNames('w-full h-full flex flex-col gap-0  md:overflow-y-hidden bg-zinc-900', sans.className)}>
         <Provider>
-          <SideBar />
-          <Navbar />
-          <div className='w-full h-full px-4 md:px-14 md:overflow-y-auto'>
+          <div className='w-full h-full bg-zinc-900'>
+            <Navbar />
+          </div>
+          <div className=' w-full h-full  md:overflow-y-auto'>
             {children}
             <Footer />
           </div>
