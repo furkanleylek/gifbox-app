@@ -1,8 +1,7 @@
 import React from 'react'
 import SingleGif from '@/components/singleGif';
 import { fetchSingleMeme, fetchWantedGifs, fetchWantedStickers } from "@/services";
-import Home from '@/components/home/home'
-
+import Trends from '@/components/home/trends';
 async function MemeId({ params, searchParams }) {
     console.log("params: ", params)
     console.log("searchParams : ", searchParams)
@@ -27,7 +26,7 @@ async function MemeId({ params, searchParams }) {
     return (
         <div className='border-4 h-full w-full'>
             <h1 className='text-xl text-white'>sa</h1>
-            <Home searchGifs={gifsData} searchStickers={stickersData} />
+            <Trends allTrends={gifsData} />
         </div>
 
     )
