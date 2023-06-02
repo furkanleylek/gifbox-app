@@ -14,12 +14,13 @@ function takeTitle(giftitle) {
   return title
 }
 
-
 function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoading }) {
   const [isHover, setIsHover] = useState(false);
-  const [copySuccess, setCopySuccess] = useState(false)
   const [isFavorite, setIsFavorite] = useState(favoritesArray?.map((e) => { return e.id }).includes(gif.id) ? true : false)
   const router = useRouter()
+  const { search } = useContextGif()
+  const [copySuccess, setCopySuccess] = useState(false)
+  const [searchStorage, setSearchStorage] = useState()
   const handleMouseOver = () => {
     setIsHover(true);
   };
@@ -27,16 +28,15 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
   const handleMouseOut = () => {
     setIsHover(false);
   };
-  const handleCopyClick = () => {
-    navigator.clipboard.writeText(gif.images.original.mp4);
-    setCopySuccess(true);
-    setTimeout(() => {
-      setCopySuccess(false);
-    }, 1000);
-  }
+
   useEffect(() => {
     localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray))
   }, [favoritesArray])
+
+  useEffect(() => {
+    setSearchStorage(JSON.parse(localStorage.getItem('search')))
+  }, [])
+
   return (
     <div
       key={gif.id}
@@ -45,7 +45,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
       onMouseOut={handleMouseOut}
       onClick={
         () => {
-          router.push(`/${gif.id}`)
+          router.push(`${searchStorage.length > 0 ? searchStorage : 'trends'}/${gif.id}`)
           setIsLoading(true)
         }}
       style={{ gridRow: `span ${index % 2 == 0 && index % 3 != 0 ? "2" : "1"}` }}
@@ -82,7 +82,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             :
             <AiOutlineStar className={`absolute text-white z-50 text-[20px] top-4 right-5 hover:scale-[1.1] transition-all`} onClick={(event) => { event.stopPropagation(), setIsFavorite(true), setFavoritesArray((prev) => { if (prev) { return [...prev, gif] } else { return [gif] } }) }} />
           }
-          <AiOutlineLink className='absolute text-white z-50 text-[20px] text-center top-4 right-14 hover:scale-[1.1] transition-all' onClick={(event) => { event.stopPropagation(), handleCopyClick() }} />
+          <AiOutlineLink className='absolute text-white z-50 text-[20px] text-center top-4 right-14 hover:scale-[1.1] transition-all' onClick={(event) => { event.stopPropagation(), setCopySuccess(true) }} />
           <span className="absolute text-white flex items-center w-full text-[14px] font-bold bottom-4 pl-4 z-50 ">
             {takeTitle(gif.title)}
           </span>
@@ -91,7 +91,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
         </>
       )}
       {copySuccess && (
-        <CopiedModal />
+        <CopiedModal url={gif.images.original.mp4} copySuccess={copySuccess} setCopySuccess={setCopySuccess} />
       )}
     </div>
 

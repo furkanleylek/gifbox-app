@@ -13,20 +13,13 @@ function Provider({ children }) {
     const [isLoading, setIsLoading] = useState(true)
 
     const data = {
-        isOpen,
-        setIsOpen,
-        isLoading,
-        setIsLoading,
-        favoritesArray,
-        setFavoritesArray,
-        wantedGifs,
-        setWantedGifs,
-        wantedStickers,
-        setWantedStickers,
-        search,
-        setSearch,
-        offSet,
-        setOffSet
+        isOpen, setIsOpen,
+        isLoading, setIsLoading,
+        favoritesArray, setFavoritesArray,
+        wantedGifs, setWantedGifs,
+        wantedStickers, setWantedStickers,
+        search, setSearch,
+        offSet, setOffSet,
     }
     return (
         <Context.Provider value={data}>

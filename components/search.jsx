@@ -28,6 +28,8 @@ export default function Search({ }) {
                 console.error(error);
             }
         }
+        localStorage.setItem('search', JSON.stringify(search))
+
         handleData()
     }, [search])
 

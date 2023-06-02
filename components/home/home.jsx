@@ -5,7 +5,7 @@ import Search from '../search'
 import { useContextGif } from '../context'
 import { BiTrendingUp } from 'react-icons/bi'
 
-function Home({ trendsGifs, searchGifs, searchStickers, trendsStickers }) {
+function Home({ trendsGifs, trendsStickers }) {
 
     const [content, setContent] = useState(0)
     const { wantedGifs, wantedStickers, search } = useContextGif()
