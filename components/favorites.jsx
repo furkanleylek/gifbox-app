@@ -80,7 +80,7 @@ function Favorites() {
     const gifFavorites = favoritesArray.map((e) => { return e }).filter((e) => { return e.type == "gif" })
     const stickerFavorites = favoritesArray.map((e) => { return e }).filter((e) => { return e.type == "sticker" })
     return (
-        <div className='w-full h-full mt-12 flex flex-col px-4 md:px-28 container m-auto'>
+        <div className='w-full h-full mt-12 flex flex-col px-4 md:px-20 lg:px-28 container m-auto'>
             <div className='w-full gap-10  '>
                 <div className='flex items-center gap-2 border-b-4 pb-2 my-4 border-gray-700 rounded-[4px]'>
                     <div className='relative w-6 md:w-8 h-6 md:h-8'>

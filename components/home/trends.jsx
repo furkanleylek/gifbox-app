@@ -7,6 +7,7 @@ import { AiOutlineStar, AiFillStar, AiOutlineLink } from 'react-icons/ai'
 import { useContextGif } from '../context';
 import CopiedModal from '../modals/copiedModal';
 import GifSkelaton from '../skelaton';
+import { MdDesignServices } from 'react-icons/md'
 
 function takeTitle(giftitle) {
   let GIFindex = giftitle.indexOf("GIF")
@@ -18,7 +19,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
   const [isHover, setIsHover] = useState(false);
   const [isFavorite, setIsFavorite] = useState(favoritesArray?.map((e) => { return e.id }).includes(gif.id) ? true : false)
   const router = useRouter()
-  const { search } = useContextGif()
+  const { setEditGif } = useContextGif()
   const [copySuccess, setCopySuccess] = useState(false)
   const [searchStorage, setSearchStorage] = useState()
   const handleMouseOver = () => {
@@ -83,6 +84,7 @@ function SingleElement({ gif, index, favoritesArray, setFavoritesArray, setIsLoa
             <AiOutlineStar className={`absolute text-white z-50 text-[20px] top-4 right-5 hover:scale-[1.1] transition-all`} onClick={(event) => { event.stopPropagation(), setIsFavorite(true), setFavoritesArray((prev) => { if (prev) { return [...prev, gif] } else { return [gif] } }) }} />
           }
           <AiOutlineLink className='absolute text-white z-50 text-[20px] text-center top-4 right-14 hover:scale-[1.1] transition-all' onClick={(event) => { event.stopPropagation(), setCopySuccess(true) }} />
+          <MdDesignServices className='absolute text-white z-50 text-[20px] text-center top-4 right-24 hover:scale-[1.1] transition-all' onClick={(event) => { event.stopPropagation(), setEditGif(gif) }} />
           <span className="absolute text-white flex items-center w-full text-[14px] font-bold bottom-4 pl-4 z-50 ">
             {takeTitle(gif.title)}
           </span>

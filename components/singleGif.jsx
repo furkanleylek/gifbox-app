@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useContextGif } from '@/components/context';
 import GifSkelaton from '@/components/skelaton';
-import { fetchSingleMeme, fetchWantedGifs, fetchWantedStickers } from "@/services";
 import { AiOutlineStar, AiFillStar, AiOutlineLink, AiOutlineDownload } from 'react-icons/ai'
 import Slider from './slider';
 import Trends from './home/trends';
 import CopiedModal from './modals/copiedModal';
 import { Tooltip } from 'react-tooltip';
 import AddText from './edit/addText';
+import Edit from './home/edit';
 
 
 function SingleGif({ gifDetail, title }) {

@@ -99,9 +99,21 @@ module.exports = {
             opacity: '1'
           },
         },
+        'moveUpDown': {
+          '0%': {
+            transform: 'translateY(-3px)',
+          },
+          '50%': {
+            transform: 'translateY(3px)',
+          },
+          '100%': {
+            transform: 'translateY(-3px)',
+          },
+        }
       },
       animation: {
         'modal': 'modal both 400ms linear ',
+        'moveUpDown': 'moveUpDown  2s infinite linear'
       }
     },
   },

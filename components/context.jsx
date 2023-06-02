@@ -12,6 +12,9 @@ function Provider({ children }) {
     const [offSet, setOffSet] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
 
+    const [editGif, setEditGif] = useState()
+    const [savedEditedGif, setSavedEditedGif] = useState([])
+
     const data = {
         isOpen, setIsOpen,
         isLoading, setIsLoading,
@@ -20,6 +23,8 @@ function Provider({ children }) {
         wantedStickers, setWantedStickers,
         search, setSearch,
         offSet, setOffSet,
+        editGif, setEditGif,
+        savedEditedGif, setSavedEditedGif,
     }
     return (
         <Context.Provider value={data}>

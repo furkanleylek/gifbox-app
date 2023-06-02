@@ -14,7 +14,7 @@ function Home({ trendsGifs, trendsStickers }) {
             <div className='container px-4  m-auto  md:hidden w-full h-full mt-12'>
                 <Search />
             </div>
-            <div className='w-full flex flex-col px-4 md:px-28 h-full container m-auto '>
+            <div id='seeGifs' className='w-full flex flex-col px-4 md:px-20 lg:px-28 h-full container m-auto '>
                 <div className='w-full h-full flex items-center justify-between mt-10  py-4 gap-16 text-3xl md:text-5xl '>
                     <div className='flex items-center gap-3'>
                         <BiTrendingUp className=' text-sky-500 text-4xl md:text-6xl' />

@@ -5,6 +5,7 @@ import {
   fetchStickerTrends,
 } from "@/services/index"
 import Title from '@/components/home/title'
+import Edit from '@/components/home/edit'
 
 async function HomePage({ params }) {
   const pagePromises = [
@@ -15,7 +16,10 @@ async function HomePage({ params }) {
   return (
     <div className='w-full h-full'>
       <div className='w-full h-full bg-zinc-900 '>
-        <Title />
+        <div className='container px-4 md:px-20 lg:px-28 m-auto flex flex-col md:flex-row gap-10 md:pt-20 md:pb-10 items-center'>
+          <Title />
+          <Edit />
+        </div>
       </div>
       <div className='w-full h-full bg-white '>
         <Home trendsGifs={trendsGifs} trendsStickers={trendsStickers} />

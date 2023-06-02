@@ -7,8 +7,6 @@ import { FaCaretSquareDown } from 'react-icons/fa'
 async function MemeId({ params }) {
     const searchParams = params.id[0]
 
-
-
     try {
 
         function takeTitle(giftitle) {
@@ -33,15 +31,23 @@ async function MemeId({ params }) {
         return (
             <div className='h-full w-full flex flex-col gap-20'>
                 <div className='w-full h-full bg-zinc-900'>
-                    <div className='px-4 md:px-28 container mx-auto'>
+                    <div className='px-4 md:px-20 lg:px-28 container mx-auto'>
                         <SingleGif gifDetail={gifDetailData} title={title} />
                     </div>
                 </div>
                 <div className='w-full h-full py-12 bg-white'>
-                    <div className='px-4 md:px-28 container mx-auto flex flex-col gap-10'>
+                    <div className='px-4 md:px-20 lg:px-28 container mx-auto flex flex-col gap-10'>
                         <div className='flex items-center gap-3 text-2xl md:text-5xl'>
                             <FaCaretSquareDown className=' text-sky-500 text-4xl md:text-6xl' />
-                            <h3 className='font-bold text-secondary italic'>Related Gifs</h3>
+                            <h3 className='font-bold text-secondary italic'>
+                                {
+                                    gifDetailData.type === 'gif'
+                                        ?
+                                        "Related Gifs"
+                                        :
+                                        "Related Stickers"
+                                }
+                            </h3>
                         </div>
                         <Trends
                             allTrends={
@@ -65,31 +71,5 @@ async function MemeId({ params }) {
         </div>;
     }
 }
-// return (
-//     <div className='h-full w-full flex flex-col gap-20'>
-//         <div className='w-full h-full bg-zinc-900'>
-//             <div className='px-4 md:px-28 container mx-auto'>
-//                 <SingleGif gifDetail={gifDetailData} title={title} />
-//             </div>
-//         </div>
-//         <div className='w-full h-full py-12 bg-white'>
-//             <div className='px-4 md:px-28 container mx-auto flex flex-col gap-10'>
-//                 <div className='flex items-center gap-3 text-2xl md:text-5xl'>
-//                     <FaCaretSquareDown className=' text-sky-500 text-4xl md:text-6xl' />
-//                     <h3 className='font-bold text-secondary italic'>Related Gifs</h3>
-//                 </div>
-//                 <Trends
-//                     allTrends={
-//                         searchParams === 'trends'
-//                             ?
-//                             (gifDetailData.type === 'gif' ? gifsTrends : stickersTrends)
-//                             :
-//                             (gifDetailData.type === 'gif' ? gifsData : stickersData)}
-//                 />
-//             </div>
-//         </div>
-//     </div>
-
-// )
 
 export default MemeId
