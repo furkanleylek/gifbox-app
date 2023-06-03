@@ -21,6 +21,24 @@ body {
     background: #262626;
 }
 
+
+
+@media screen and (max-width: 800px) {
+    .bg-background {
+        background: #18181B;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .bg-background {
+        background-image: url('../public/wave.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+
 @media screen and (max-width: 600px) {
     ::-webkit-scrollbar {
         width: 5px;

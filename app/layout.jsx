@@ -11,9 +11,9 @@ const mono = Roboto_Mono({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={classNames('w-full h-full flex flex-col gap-0  md:overflow-y-hidden bg-zinc-900', sans.className)}>
+      <body className={classNames('w-full h-full flex flex-col gap-0 md:overflow-y-hidden bg-background', sans.className)}>
         <Provider>
-          <div className='w-full h-full bg-zinc-900'>
+          <div className='w-full h-full'>
             <Navbar />
           </div>
           <div className=' w-full h-full  md:overflow-y-auto'>
@@ -23,5 +23,6 @@ export default function RootLayout({ children }) {
         </Provider>
       </body>
     </html>
+
   )
 }

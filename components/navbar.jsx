@@ -28,14 +28,14 @@ function Navbar() {
                     <span className={`${isOpen ? 'opacity-0  border-secondary' : 'opacity-100  border-primary'} h-4 w-[44px] border-b-[4px] rounded-sm transition-all  ease-in-out delay-200 `}></span>
                     <span className={`${isOpen ? '-rotate-[-45deg]  translate-y-[-12px]  border-secondary' : ' border-primary'} h-4 w-[44px] border-b-[4px] rounded-sm transform transition ease-in-out delay-200`}></span>
                 </button>
-                <div className='hidden md:flex items-center text-white text-4xl gap-8'>
+                <div className='hidden md:flex items-center text-4xl gap-8'>
                     <Link href='/favorites' data-tooltip-id="my-tooltip" data-tooltip-content="Favorites">
-                        <AiFillStar className='text-orange-400 opacity-60 hover:opacity-100 hover:scale-105' />
+                        <AiFillStar className='text-orange-500 opacity-60 hover:opacity-100 hover:scale-105' />
                     </Link>
                     <Link href='/designs' data-tooltip-id="my-tooltip" data-tooltip-content="Designs">
-                        <MdDesignServices className='text-green-400 hover:scale-105 opacity-60 hover:opacity-100' />
+                        <MdDesignServices className='text-green-700 hover:scale-105 opacity-60 hover:opacity-100' />
                     </Link>
-                    <Tooltip id="my-tooltip" style={{ backgroundColor: 'transparent', color: 'white', fontSize: '10px' }} />
+                    <Tooltip id="my-tooltip" style={{ backgroundColor: 'transparent', color: 'black', fontSize: '10px' }} />
                 </div>
             </div>
             {isOpen && (

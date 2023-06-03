@@ -14,7 +14,6 @@ module.exports = {
         loginPerson: "#616060",
         shadow: "#f5f5f3",
         white: '#ffffff',
-        background: '#ffffff',
         foreground: '#f27a1a',
         muted: '#f8fafd',
         'muted-foreground': '#7a8997',
