@@ -2,8 +2,9 @@
 import React from 'react'
 import { useContextGif } from '../context'
 import Image from 'next/image'
-import { AiOutlineFileAdd, AiOutlineDownload, AiOutlineFileGif } from 'react-icons/ai'
+import { AiOutlineFileAdd, AiOutlineDownload, AiOutlineBgColors } from 'react-icons/ai'
 import { BsFileEarmarkPlus } from 'react-icons/bs'
+import { IoText } from 'react-icons/io5'
 import { Tooltip } from 'react-tooltip';
 import classNames from 'classnames'
 import { Lora } from '@next/font/google'
@@ -16,7 +17,7 @@ const Edit = () => {
   const { editGif, setEditGif } = useContextGif()
   return (
     <div className='w-full max-w-[400px]  relative'>
-      <div className='h-60 relative w-full p-4 bg-sky-700 rounded-[10px]'>
+      <div className='h-60 relative w-full p-4 bg-sky-700 border-2 border-dotted border-gray-400 rounded-[10px]'>
         {
           editGif
             ?
@@ -55,23 +56,32 @@ const Edit = () => {
             </div>
         }
       </div>
-      <div className='text-3xl  flex items-center justify-center gap-10 h-full py-10'>
+      <div className='text-base md:text-xl flex text-zinc-900 bg-gray-200 items-center justify-evenly h-full gap-2  mt-2 rounded-full border-2'>
         <button
-          className='p-2 rounded text-green-300 opacity-70 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          className='p-2 rounded  opacity-80 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          data-tooltip-id="edit-tooltip" data-tooltip-content="Add Text"
+        >
+          <IoText />
+        </button>
+        <button
+          className='p-2 rounded opacity-80 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          data-tooltip-id="edit-tooltip" data-tooltip-content="Color"
+        >
+          <AiOutlineBgColors />
+        </button>
+        <button
+          className='p-2 rounded opacity-80 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          data-tooltip-id="edit-tooltip" data-tooltip-content="Save Edit"
         >
           <AiOutlineFileAdd />
-          <span className='text-white text-[12px] font-bold'>
-            Save Edit
-          </span>
         </button>
         <button
-          className='p-2 rounded text-rose-300 opacity-70 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          className='p-2 rounded opacity-80 hover:opacity-100 hover:scale-105 flex items-center justify-center flex-col'
+          data-tooltip-id="edit-tooltip" data-tooltip-content="Download"
         >
           <AiOutlineDownload />
-          <span className='text-white text-[12px] font-bold'>
-            Download
-          </span>
         </button>
+        <Tooltip id="edit-tooltip" style={{ backgroundColor: 'white', border: '2px solid transparent', color: 'black', fontSize: '10px', padding: '4px 4px' }} place='bottom' />
       </div>
     </div>
   )
