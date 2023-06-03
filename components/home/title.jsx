@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Inter, Roboto_Mono, Open_Sans, Mate_SC, Lora } from '@next/font/google'
+import { Lora } from '@next/font/google'
 import { TiTick } from 'react-icons/ti'
 import ChooseGif from './chooseGif'
 

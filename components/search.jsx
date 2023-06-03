@@ -35,7 +35,7 @@ export default function Search({ }) {
 
     /* fetch new data when scroll */
     return (
-        <div className="w-full h-full flex items-center rounded-full relative gap-2 mt-0 pt-0 max-w-[800px] ">
+        <div className="w-full lg:w-[400px] h-full flex items-center rounded-full relative gap-2 mt-0 pt-0 max-w-[800px] ">
             <input
                 className={`${isFocused ? '' : 'shadow-md shadow-zinc-300'} italic text-xl font-semibold py-2 px-10 w-full rounded-full focus:outline-none focus:ring-2 transition duration-200 ease-in-out`}
                 type="text"

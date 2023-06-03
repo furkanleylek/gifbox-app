@@ -18,7 +18,7 @@ function Navbar() {
             <div className='flex items-center justify-between '>
                 <Link href='/' className='flex items-center gap-4 cursor-pointer'>
                     <Image src={gifbox} width={60} height={40} alt='gifbox' />
-                    <span className='z-50 text-2xl  mt-2 italic font-bold pointer-events-none text-sky-500'>gifbox</span>
+                    <span className='z-50 text-2xl  mt-2 italic font-bold pointer-events-none text-sky-400'>gifbox</span>
                 </Link>
                 <button
                     className={`h-[35px] flex md:hidden flex-col items-center justify-center cursor-pointer z-[999] hover:scale-110 transition-all `}
