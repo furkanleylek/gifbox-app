@@ -8,6 +8,7 @@ import { AiFillStar } from 'react-icons/ai'
 import { MdDesignServices } from 'react-icons/md'
 import Link from 'next/link';
 import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 
 function Navbar() {
 
@@ -29,7 +30,7 @@ function Navbar() {
                     <span className={`${isOpen ? '-rotate-[-45deg]  translate-y-[-12px]  border-secondary' : ' border-primary'} h-4 w-[44px] border-b-[4px] rounded-sm transform transition ease-in-out delay-200`}></span>
                 </button>
                 <div className='hidden md:flex items-center text-4xl gap-8'>
-                    <Link href='/favorites' data-tooltip-id="my-tooltip" data-tooltip-content="Favorites">
+                    <Link href='/favorites' data-tooltip-id="my-tooltip" data-tooltip-content="Favorites" >
                         <AiFillStar className='text-orange-400 opacity-60 hover:opacity-100 hover:scale-105' />
                     </Link>
                     <Link href='/designs' data-tooltip-id="my-tooltip" data-tooltip-content="Designs">

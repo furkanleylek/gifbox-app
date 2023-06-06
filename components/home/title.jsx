@@ -9,8 +9,8 @@ const lora = Lora({ subsets: ['latin'], weight: ['400'] })
 const Title = () => {
     return (
         <section className='w-full h-full'>
-            <div className='flex gap-6 text-white w-full h-full pt-10 pb-28 '>
-                <div className='flex flex-col gap-12'>
+            <div className='flex gap-6 text-white w-full h-full md:pt-10 pb-28 '>
+                <div className='flex flex-col gap-6 md:gap-12'>
                     <h1 className={classNames('text-4xl md:text-5xl lg:text-7xl font-bold leading-loose', lora.className)}>EDIT GIFS STICKERS</h1>
                     <div className='flex flex-col gap-6 text-[18px]'>
                         <div className='flex items-center justify-start  gap-4'>
